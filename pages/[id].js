@@ -26,6 +26,12 @@ export const getStaticProps = async ({ params: { id } }) => {
     .match({ id })
     .single();
 
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       post,
